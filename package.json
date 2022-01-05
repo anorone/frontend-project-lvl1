@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "[![Actions Status](https://github.com/anorone/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/anorone/frontend-project-lvl1/actions)",
   "main": "",
+  "type": "module",
+  "bin": {
+    "brain-games": "./bin/brain-games.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
