@@ -1,7 +1,5 @@
 import readlineSync from 'readline-sync';
 
-const ask = (questionText) => {
-  return readlineSync.question(questionText + ' ');
-};
+const ask = (questionText) => readlineSync.question(`${questionText} `);
 
-export { ask };
+export default ask;
