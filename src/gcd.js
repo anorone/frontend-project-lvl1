@@ -1,5 +1,6 @@
-const gcd = (...args) => {
-  const [larger, smaller] = args.sort((current, next) => next - current);
+const gcd = (a, b) => {
+  const larger = Math.max(a, b);
+  const smaller = Math.min(a, b);
 
   if (larger % smaller === 0) {
     return smaller;
