@@ -5,21 +5,16 @@ const runTheGame = (rule, getPair) => {
 
   const userName = ask('May I have your name?');
   console.log(`Hello, ${userName}!`);
-
   console.log(rule);
 
   const questionsCount = 3;
   let score = 0;
-  let question;
 
-  for (question = 1; question <= questionsCount; question += 1) {
-    const taskTerms = getPair();
+  for (let question = 1; question <= questionsCount; question += 1) {
+    const [questionText, correctAnswer] = getPair();
 
-    const questionText = taskTerms[0];
     console.log(`Question: ${questionText}`);
-
     const userAnswer = ask('Your answer:');
-    const correctAnswer = taskTerms[1];
 
     if (userAnswer === correctAnswer) {
       console.log('Correct!');
