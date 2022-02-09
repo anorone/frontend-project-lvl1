@@ -1,6 +1,19 @@
 import ask from './cli.js';
+import getRandomNumber from './get-random.js';
 
-const runTheGame = (rule, getPair) => {
+const getRandomNumbers = (ranges) => {
+  const randomNumbers = [];
+
+  for (let i = 0; i < ranges.length; i += 1) {
+    const [min, max] = ranges[i];
+    const randomNumber = getRandomNumber(min, max);
+    randomNumbers.push(randomNumber);
+  }
+
+  return randomNumbers;
+};
+
+const runTheGame = (rule, ranges, getPair) => {
   console.log('Welcome to the Brain Games!');
 
   const userName = ask('May I have your name?');
@@ -11,7 +24,8 @@ const runTheGame = (rule, getPair) => {
   let score = 0;
 
   for (let question = 1; question <= questionsCount; question += 1) {
-    const [questionText, correctAnswer] = getPair();
+    const randomNumbers = getRandomNumbers(ranges);
+    const [questionText, correctAnswer] = getPair(randomNumbers);
 
     console.log(`Question: ${questionText}`);
     const userAnswer = ask('Your answer:');

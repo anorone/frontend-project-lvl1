@@ -1,10 +1,8 @@
-import { getRandomNumber } from './get-random.js';
-
-const buildGetPairFunc = (range, predicateFunc) => () => {
-  const randomNumber = getRandomNumber(range[0], range[1]);
+const buildGetPairFunc = (predicate) => (randomNumbers) => {
+  const randomNumber = randomNumbers[0];
 
   const questionText = randomNumber.toString();
-  const correctAnswer = predicateFunc(randomNumber) ? 'yes' : 'no';
+  const correctAnswer = predicate(randomNumber) ? 'yes' : 'no';
 
   return [questionText, correctAnswer];
 };
